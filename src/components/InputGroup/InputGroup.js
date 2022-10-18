@@ -19,8 +19,6 @@ const InputGroup = ({ labelText, isOptional, placeholder, name, inputValue, inpu
           placeholder={placeholder}
           name={name}
           defaultValue={defaultValue}
-          value={inputValue}
-
           type={inputType}
           {...register(name, { required: !isOptional })}
         />

@@ -1,29 +1,45 @@
 import React from "react";
+
 import { useForm  } from "react-hook-form";
+import { useStateMachine } from "little-state-machine";
+import { withRouter } from "react-router-dom";
 
-import Link from "../../components/Link/Link";
-import InputGroup from "../InputGroup/InputGroup";
-import DateInputGroup from "../DateInputGroup/DateInputGroup"
-import "./Form.css";
 import Checkbox from "../Checkbox/Checkbox";
+import DateInputGroup from "../DateInputGroup/DateInputGroup"
+import InputGroup from "../InputGroup/InputGroup";
+import Link from "../Link/Link";
 import StatusMessage from "../StatusMessage/StatusMessage"
+import updateAction from "../../updateAction";
 
-const Form = () => {
-    const {register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+import "./Form.css";
+import Button from "../Button/Button";
 
+const Form = (props) => {
+    const {register, handleSubmit,  formState: { errors } } = useForm();
+    const { state, actions } = useStateMachine({ updateAction });
+console.log(state.day)
+    const onSubmit = (data) => {
+        actions.updateAction(data);
+        // event.preventDefault();
+        console.log('props', props);
+        if (props.history) props.history.push("./preview");
+    }
     return (
         <>
-            <form className="form" onSubmit={handleSubmit((data) => {
-                console.log(data)
-            })}>
-                <DateInputGroup labelText="When did you hear it?" />
+            <form className="form" onSubmit={handleSubmit(onSubmit)}>
+                <DateInputGroup 
+                    labelText="When did you hear it?" 
+                    name={'date'}
+                    register={register}
+                    defaultValue={state}    
+                    />
                 <InputGroup 
                     labelText="What company was it about?" 
                     isOptional={false}
                     placeholder="Company Name" 
                     name={'companyName'}
                     register={register}
+                    defaultValue={state.companyName}
                 /> 
                 {errors.companyName && <StatusMessage label="This field is required" variant="error" />}
 
@@ -31,43 +47,56 @@ const Form = () => {
                     labelText="How many millions?" 
                     inputType="number"
                     placeholder={'999.999'}
-                    name={'cost'}
+                    name={'amount'}
                     register={register}
+                    defaultValue={state.amount}
+
                 />
                 <InputGroup 
                     labelText="In what currency?" 
                     placeholder="Currency code" 
                     name={'currency'}
                     register={register}
+                    defaultValue={state.currency}
+
                 />
                 <InputGroup 
                     labelText="Source codename" 
                     placeholder="Codename" 
-                    name={'codename'}
+                    name={'sourceCodename'}
                     register={register}
+                    defaultValue={state.sourceCodename}
+
                 />
 
-                <Checkbox title="From a trusted source" iconType="done" />
+                <Checkbox 
+                    title="From a trusted source" 
+                    iconType="done" 
+                    name={'isTrustedSource'}
+                    register={register}
+                    defaultValue={state.isTrustedSource}
+
+                />
+
                 { errors.companyName && <StatusMessage label="An error was found. Please check your entry" variant="error" /> }
-                
-                <input type="submit"/>
-                
+                                
                 <div className="buttonsWrapper">
                     <Link
                         to="/"
                         label="Discard"
                         iconBefore="chevronLeft"
                         variant="secondary" />
-                    <Link
-                        to="/preview"
+                    <Button
                         label="Validate and preview"
                         iconBefore="infoCircleOutline"
                         variant="primary" 
-                        />
+                        onClick={() => {}}
+                        type="submit"
+                    />
                 </div>
             </form>
         </>
     );
 };
 
-export default Form;
+export default withRouter(Form);
