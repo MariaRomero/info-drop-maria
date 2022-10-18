@@ -1,7 +1,6 @@
 import React from "react";
 
 import PropTypes from "prop-types";
-import H2 from "../H2/H2";
 
 import "./Checkbox.css";
 
@@ -16,7 +15,9 @@ const Checkbox = ({ title, register }) => {
             {...register("isTrustedSource")}
           />
           <div className="paddingLeft">
-          <H2 title={title} />
+          <section className="H2" data-testid="H2">
+            <h2 className="titleText">{title}</h2>
+          </section>
           </div>
       </label>
     </>
