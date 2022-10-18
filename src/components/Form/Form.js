@@ -70,8 +70,6 @@ const Form = (props) => {
 
                 <Checkbox 
                     title="From a trusted source" 
-                    iconType="done" 
-                    name={'isTrustedSource'}
                     register={register}
                     defaultValue={state.isTrustedSource}
 

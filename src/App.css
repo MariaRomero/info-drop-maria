@@ -16,7 +16,9 @@
   --blue-500: #028ff5;
   --blue-600: #297fd0;
   /* other */
+  --font-small: 400;
   --font-medium: 500;
+  --font-Xlarge: 700;
   /* font size */
   --font-size-small: 1em;
   --font-size-medium: 1.125em;
