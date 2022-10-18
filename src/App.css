@@ -5,6 +5,7 @@
   --grey-300: #e0e8f0;
   --grey-500: #9faebf;
   --grey-600: #738195;
+  --grey-700: #485465;
   --grey-900: #1d2a37;
   --red-700: #cb2d34;
   --green-700: #14855d;
@@ -16,6 +17,9 @@
   --blue-600: #297fd0;
   /* other */
   --font-medium: 500;
+  /* font size */
+  --font-size-small: 1em;
+  --font-size-medium: 1.125em;
 }
 
 .app {

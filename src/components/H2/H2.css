@@ -1,0 +1,12 @@
+.H2 {
+    display: flex;
+}
+
+.H2 h2 {
+    font-size: 1.125em;
+    font-weight: var(--font-medium);
+    padding-right: 0.75rem;
+    color: var(--grey-700)
+}
+
+  

@@ -1,0 +1,49 @@
+.inputGroup {
+    padding: 1.25em 0 1em;
+    display: block;
+}
+
+.textContiner {
+    font-size: 1.125em;
+    font-weight: var(--font-medium);
+    padding-right: 0.75rem;
+    display: block;
+    color: var(--grey-700);
+}
+
+.inputTag {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+
+    width: 379px;
+    height: 43px;
+
+    background: var(--white);
+
+    border: 1px solid var(--grey-500);
+    border-radius: 4px;
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.inputTag::placeholder  {
+    /* width: 355px;
+    height: 19px; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--grey-500);
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}
+
+  
