@@ -28,3 +28,8 @@
   max-width: 80em;
   margin: 0 auto;
 }
+
+.buttonsWrapper {
+  justify-content: space-between;
+  display: flex;
+}
