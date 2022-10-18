@@ -1,9 +1,11 @@
 import React from "react";
+
 import PropTypes from "prop-types";
-import "./InputGroup.css";
 import Tag from "../Tag/Tag";
 
-const InputGroup = ({ labelText, isOptional, placeholder, name, inputValue, inputType, register }) => {
+import "./InputGroup.css";
+
+const InputGroup = ({ labelText, isOptional, placeholder, name, inputValue, inputType, register, defaultValue }) => {
 
   return (
     <section className="inputGroup" data-testid="InputGroup">
@@ -16,7 +18,9 @@ const InputGroup = ({ labelText, isOptional, placeholder, name, inputValue, inpu
           className="inputTag"
           placeholder={placeholder}
           name={name}
+          defaultValue={defaultValue}
           value={inputValue}
+
           type={inputType}
           {...register(name, { required: !isOptional })}
         />
@@ -34,7 +38,8 @@ InputGroup.propTypes = {
   name: PropTypes.string, 
   inputValue: PropTypes.number, 
   inputType: PropTypes.string, 
-  register: PropTypes.func
+  register: PropTypes.func,
+  defaultValue: PropTypes.string
 };
 
 InputGroup.defaultProps = {
@@ -44,5 +49,6 @@ InputGroup.defaultProps = {
   name: undefined, 
   inputValue: undefined, 
   inputType: 'text', 
-  register: undefined
+  register: undefined,
+  defaultValue: null
 };

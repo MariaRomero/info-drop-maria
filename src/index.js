@@ -10,10 +10,16 @@ import './index.css';
 
 createStore({
   data: {
+    date: {
+      day: '',
+      month: '',
+      year: '',
+    },
     companyName: '',
-    cost: '',
+    amount: '',
     currency: '',
-    codename: '',
+    sourceCodename: '',
+    isTrustedSource: '',
   }
 });
 
