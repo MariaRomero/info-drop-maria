@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./DateInputGroup.css";
 
-const DateInputGroup = ({ labelTex }) => {
+const DateInputGroup = ({ labelText }) => {
   return (
     <section className="dateInputGroup" data-testid="DateInputGroup">
         <label className="labelContiner">
-            {labelTex}
+            {labelText}
         </label>
 
         <div className="dateWrapper">
@@ -36,12 +36,9 @@ const DateInputGroup = ({ labelTex }) => {
 export default DateInputGroup;
 
 DateInputGroup.propTypes = {
-  title: PropTypes.string.isRequired,
-  tagText: PropTypes.string,
-  isOptional: PropTypes.bool
+    labelText: PropTypes.string
 };
 
 DateInputGroup.defaultProps = {
-  tagText: undefined,
-  isOptional: true
+    labelText: undefined
 };

@@ -3,22 +3,24 @@ import PropTypes from "prop-types";
 import "./InputGroup.css";
 import Tag from "../Tag/Tag";
 
-const InputGroup = ({ labelTex, inputValue, inputType, isOptional }) => {
+const InputGroup = ({ labelText, isOptional, placeholder, name, inputValue, inputType, register }) => {
+
   return (
     <section className="inputGroup" data-testid="InputGroup">
       <label>
-      <div className="textContiner">
-        {labelTex}
-        { isOptional ? <Tag label="Optional"/> : ''}
-      </div>
+        <div className="textContiner">
+          { labelText }
+          { isOptional ? <Tag label="Optional"/> : ''}
+        </div>
         <input
           className="inputTag"
-          placeholder={inputValue}
-          name={inputValue}
+          placeholder={placeholder}
+          name={name}
+          value={inputValue}
           type={inputType}
-          // value={inputValue}
+          {...register(name, { required: !isOptional })}
         />
-    </label>
+      </label>
     </section>
   );
 };
@@ -26,12 +28,21 @@ const InputGroup = ({ labelTex, inputValue, inputType, isOptional }) => {
 export default InputGroup;
 
 InputGroup.propTypes = {
-  title: PropTypes.string.isRequired,
-  tagText: PropTypes.string,
-  isOptional: PropTypes.bool
+  labelText: PropTypes.string,
+  isOptional: PropTypes.bool,
+  placeholder: PropTypes.string, 
+  name: PropTypes.string, 
+  inputValue: PropTypes.number, 
+  inputType: PropTypes.string, 
+  register: PropTypes.func
 };
 
 InputGroup.defaultProps = {
-  tagText: undefined,
-  isOptional: true
+  labelText: undefined,
+  isOptional: true,
+  placeholder: undefined, 
+  name: undefined, 
+  inputValue: undefined, 
+  inputType: 'text', 
+  register: undefined
 };

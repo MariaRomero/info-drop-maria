@@ -1,55 +1,71 @@
 import React from "react";
+import { useForm  } from "react-hook-form";
+
 import Link from "../../components/Link/Link";
 import InputGroup from "../InputGroup/InputGroup";
 import DateInputGroup from "../DateInputGroup/DateInputGroup"
 import "./Form.css";
 import Checkbox from "../Checkbox/Checkbox";
+import StatusMessage from "../StatusMessage/StatusMessage"
 
 const Form = () => {
+    const {register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+
     return (
         <>
-            <form className="form">
-                <DateInputGroup labelTex="When did you hear it?" isOptional={false}/>
+            <form className="form" onSubmit={handleSubmit((data) => {
+                console.log(data)
+            })}>
+                <DateInputGroup labelText="When did you hear it?" />
                 <InputGroup 
-                    labelTex="What company was it about?" 
-                    inputType="text"
+                    labelText="What company was it about?" 
                     isOptional={false}
-                    inputValue="Company Name" 
+                    placeholder="Company Name" 
+                    name={'companyName'}
+                    register={register}
                 /> 
-                <InputGroup 
-                    labelTex="How many millions?" 
-                    inputType="number"
-                    isOptional={true}
-                    inputValue={999999} 
-                />
-                <InputGroup 
-                    labelTex="In what currency?" 
-                    inputType="text"
-                    isOptional={true}
-                    inputValue="Currency code" 
-                />
-                <InputGroup 
-                    labelTex="Source codename" 
-                    inputType="text"
-                    isOptional={true}
-                    inputValue="Codename" 
-                />
-            </form>
+                {errors.companyName && <StatusMessage label="This field is required" variant="error" />}
 
-            <Checkbox title="From a trusted source" iconType="done" />
-            
-            <div className="buttonsWrapper">
-                <Link
-                    to="/"
-                    label="Discard"
-                    iconBefore="chevronLeft"
-                    variant="secondary" />
-                <Link
-                    to="/preview"
-                    label="Validate and preview"
-                    iconBefore="infoCircleOutline"
-                    variant="primary" />
-            </div>
+                <InputGroup 
+                    labelText="How many millions?" 
+                    inputType="number"
+                    placeholder={'999.999'}
+                    name={'cost'}
+                    register={register}
+                />
+                <InputGroup 
+                    labelText="In what currency?" 
+                    placeholder="Currency code" 
+                    name={'currency'}
+                    register={register}
+                />
+                <InputGroup 
+                    labelText="Source codename" 
+                    placeholder="Codename" 
+                    name={'codename'}
+                    register={register}
+                />
+
+                <Checkbox title="From a trusted source" iconType="done" />
+                { errors.companyName && <StatusMessage label="An error was found. Please check your entry" variant="error" /> }
+                
+                <input type="submit"/>
+                
+                <div className="buttonsWrapper">
+                    <Link
+                        to="/"
+                        label="Discard"
+                        iconBefore="chevronLeft"
+                        variant="secondary" />
+                    <Link
+                        to="/preview"
+                        label="Validate and preview"
+                        iconBefore="infoCircleOutline"
+                        variant="primary" 
+                        />
+                </div>
+            </form>
         </>
     );
 };
