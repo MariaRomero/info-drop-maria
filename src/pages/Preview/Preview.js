@@ -37,7 +37,6 @@ const Preview = (props) => {
         body: JSON.stringify(jsonData)})
         .then((response) => response.json())
         .then((data) => {
-            // console.log("data--->",data)
             if (data.message === 'accepted'){
                 // clear store go home
                 actions.clearAction()
@@ -62,7 +61,7 @@ const Preview = (props) => {
                     </h2>
                     <div className="companyTitleWrapper">
                         <p className="companyTitle">{state.companyName}</p>
-                        <Tag label="Trusted Source"/>
+                        { state.isTrustedSource && <Tag label="Trusted Source"/>}
                     </div>
                     <p className="contentText">says</p>
                     <p className="codenameTitle">{state.sourceCodename}</p>

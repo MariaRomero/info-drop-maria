@@ -5,14 +5,20 @@ import H2 from "../H2/H2";
 
 import "./Checkbox.css";
 
-const Checkbox = ({ title }) => {
+const Checkbox = ({ title, register }) => {
   return (
     <>
-        <label className="checkbox-wrapper" data-testid="Checkbox">
-            <input className="input primary checked" 
-                type="checkbox" />
-            <H2 title={title} />
-        </label>
+      <label className="checkbox-wrapper" data-testid="Checkbox">
+          <input 
+            className="checkbox" 
+            type="checkbox"
+            name="isTrustedSource"
+            {...register("isTrustedSource")}
+          />
+          <div className="paddingLeft">
+          <H2 title={title} />
+          </div>
+      </label>
     </>
   );
 };
@@ -21,9 +27,10 @@ export default Checkbox;
 
 Checkbox.propTypes = {
   title: PropTypes.string.isRequired,
-  tagText: PropTypes.string,
+  register: PropTypes.object,
 };
 
 Checkbox.defaultProps = {
-  tagText: undefined,
+  title: undefined,
+  register: undefined
 };
