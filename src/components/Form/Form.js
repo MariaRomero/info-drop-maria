@@ -1,15 +1,14 @@
 import React from "react";
-
 import { useForm  } from "react-hook-form";
-import { useStateMachine } from "little-state-machine";
 import { withRouter } from "react-router-dom";
+import { useStateMachine } from "little-state-machine";
 
 import Checkbox from "../Checkbox/Checkbox";
 import DateInputGroup from "../DateInputGroup/DateInputGroup"
 import InputGroup from "../InputGroup/InputGroup";
 import Link from "../Link/Link";
 import StatusMessage from "../StatusMessage/StatusMessage"
-import updateAction from "../../updateAction";
+import updateAction from "../../helpers/updateAction";
 
 import "./Form.css";
 import Button from "../Button/Button";
@@ -17,13 +16,13 @@ import Button from "../Button/Button";
 const Form = (props) => {
     const {register, handleSubmit,  formState: { errors } } = useForm();
     const { state, actions } = useStateMachine({ updateAction });
-console.log(state.day)
+
     const onSubmit = (data) => {
         actions.updateAction(data);
         // event.preventDefault();
-        console.log('props', props);
         if (props.history) props.history.push("./preview");
     }
+
     return (
         <>
             <form className="form" onSubmit={handleSubmit(onSubmit)}>

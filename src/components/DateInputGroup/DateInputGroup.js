@@ -13,7 +13,7 @@ const DateInputGroup = ({ labelText, register, defaultValue }) => {
             <input 
                 className="dateContiner"
                 name="day"
-                type="text"
+                type="number"
                 placeholder="dd"
                 defaultValue={defaultValue.day}
                 {...register("day")}
@@ -21,18 +21,18 @@ const DateInputGroup = ({ labelText, register, defaultValue }) => {
             <input
                 className="dateContiner"
                 name="month"
-                type="text"
+                type="number"
                 placeholder="mm"
                 defaultValue={defaultValue.month}
-                {...register('month')}
+                {...register("month")}
             />
             <input
                 className="dateContiner"
                 name="year"
-                type="text"
+                type="number"
                 placeholder="yyyy"
                 defaultValue={defaultValue.year}
-                {...register('year')}
+                {...register("year")}
             />
         </div>
     </section>

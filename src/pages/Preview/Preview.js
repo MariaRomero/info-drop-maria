@@ -1,38 +1,53 @@
 import React from "react";
 import { useStateMachine } from "little-state-machine";
+import { withRouter } from "react-router-dom";
 
 import Header from "../../components/Header/Header";
 import Link from "../../components/Link/Link";
 import Tag from "../../components/Tag/Tag";
-import updateAction from "../../updateAction";
+import Button from "../../components/Button/Button";
+import updateAction from "../../helpers/updateAction";
+import clearAction from "../../helpers/clearAction";
 
 import "./Preview.css";
-import Button from "../../components/Button/Button";
 
 const Preview = (props) => {
 
-    const { state } = useStateMachine(updateAction);
-    if (props.history) props.history.push("./create");
+    const { state, actions } = useStateMachine({ updateAction, clearAction });
 
-    // var jsonData = {
-    //     date: {
-    //         day: number,
-    //         month: number,
-    //         year: number,
-    //     },
-    //    companyName: string,
-    //    amount: number, // optional
-    //    currency: string, // optional
-    //    sourceCodename: string, // optional
-    //    isTrustedSource: bool,
-    // }
+    var jsonData = {
+        companyName: state.companyName,
+        date: {
+            day: Number(state.day),
+            month: Number(state.month),
+            year: Number(state.year),
+        },
+        amount: Number(state.amount),
+        currency: state.currency,
+        sourceCodename: state.sourceCodename,
+        isTrustedSource: state.isTrustedSource,
+    }
 
     const handleClick = () => {
         fetch('https://rocky-chamber-70595.herokuapp.com/rumour', {  
             method: 'POST', 
-            mode: 'cors', 
-            // body: JSON.stringify(jsonData) // body data type must match "Content-Type" header
-    
+            headers: {
+                'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonData)})
+        .then((response) => response.json())
+        .then((data) => {
+            // console.log("data--->",data)
+            if (data.message === 'accepted'){
+                // clear store go home
+                actions.clearAction()
+                actions.updateAction(data);
+
+                props.history.push("./")
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
         })
     }
 
@@ -60,7 +75,7 @@ const Preview = (props) => {
     
                 </div>
             </section>
-            <pre>{JSON.stringify(state, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
 
             <div className="buttonsWrapper">
                 <Link
@@ -74,7 +89,7 @@ const Preview = (props) => {
                     label="Publish rumour"
                     iconBefore="done"
                     variant="primary" 
-                    onClick={handleClick(state)}
+                    onClick={() => handleClick()}
                     type="submit"
                 />
             </div>
@@ -83,5 +98,5 @@ const Preview = (props) => {
     );
 };
 
-export default Preview;
+export default withRouter(Preview);
 
