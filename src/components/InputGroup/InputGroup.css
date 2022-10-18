@@ -1,5 +1,14 @@
 .inputGroup {
-    padding: 1.25em 0 1em;
+    margin-bottom: 2.5em;
+    display: block;
+}
+
+.errorBorder {
+    border-left: 4px solid var(--red-700);
+}
+
+.errorBorderPadding {
+    padding-left: 0.75em;
     display: block;
 }
 
@@ -16,16 +25,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 12px;
-    gap: 12px;
+    padding: 0.75em;
+    gap: 0.75em;
 
-    width: 379px;
-    height: 43px;
+    width: 100%;
+    height: 2.688em;
 
     background: var(--white);
 
     border: 1px solid var(--grey-500);
-    border-radius: 4px;
+    border-radius:0.25em;
 
     flex: none;
     order: 1;
@@ -34,12 +43,10 @@
 }
 
 .inputTag::placeholder  {
-    /* width: 355px;
-    height: 19px; */
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
+    font-size: 1em;
+    line-height: 1.188em;
     color: var(--grey-500);
     flex: none;
     order: 0;

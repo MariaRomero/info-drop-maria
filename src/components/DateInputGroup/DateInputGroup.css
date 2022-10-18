@@ -1,9 +1,12 @@
+.dateInputGroup {
+    margin-bottom: 2.5em;
+}
 
 .labelContiner {
     font-size: 1.125em;
     font-weight: var(--font-medium);
     padding-right: 0.75rem;
-    padding-bottom: 12px;
+    padding-bottom: 0.75em;
     display: grid;
 }
 
@@ -17,17 +20,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 12px;
-    margin-right: 16px;
-    gap: 12px;
+    padding: 0.75em;
+    margin-right: 1em;
+    gap: 0.75em;
 
-    height: 43px;
-    width: 64px;
+    height: 2.688em;
+    width: 4em;
 
     background: var(--white);
 
     border: 1px solid var(--grey-500);
-    border-radius: 4px;
+    border-radius:0.25em;
 
     flex: none;
     order: 1;
@@ -37,9 +40,9 @@
 
 .dateContiner::placeholder  {
     font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
+    font-weight: var(--font-small);
+    font-size: 1em;
+    line-height: 1.188em;
     color: var(--grey-500);
     flex: none;
     order: 0;

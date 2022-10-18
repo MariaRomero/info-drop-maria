@@ -27,7 +27,7 @@ export default Checkbox;
 
 Checkbox.propTypes = {
   title: PropTypes.string.isRequired,
-  register: PropTypes.object,
+  register: PropTypes.func,
 };
 
 Checkbox.defaultProps = {

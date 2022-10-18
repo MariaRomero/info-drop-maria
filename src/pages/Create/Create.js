@@ -5,7 +5,7 @@ import "./Create.css";
 
 const Create = () => {
   return (
-    <div className="create" >
+    <div>
       <Header title="New Rumour" subtitle="Enter the details of the rumour you heard" />
       <main data-testid="Create">
       <Form />

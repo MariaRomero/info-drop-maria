@@ -19,7 +19,6 @@ const Form = (props) => {
 
     const onSubmit = (data) => {
         actions.updateAction(data);
-        // event.preventDefault();
         if (props.history) props.history.push("./preview");
     }
 
@@ -39,8 +38,8 @@ const Form = (props) => {
                     name={'companyName'}
                     register={register}
                     defaultValue={state.companyName}
+                    errors={errors}
                 /> 
-                {errors.companyName && <StatusMessage label="This field is required" variant="error" />}
 
                 <InputGroup 
                     labelText="How many millions?" 
@@ -49,7 +48,6 @@ const Form = (props) => {
                     name={'amount'}
                     register={register}
                     defaultValue={state.amount}
-
                 />
                 <InputGroup 
                     labelText="In what currency?" 
@@ -75,7 +73,8 @@ const Form = (props) => {
 
                 />
 
-                { errors.companyName && <StatusMessage label="An error was found. Please check your entry" variant="error" /> }
+                {errors.companyName && <div className="errorWrapper"> <StatusMessage label="An error was found. Please check your entry" variant="error" /> 
+                </div>}
                                 
                 <div className="buttonsWrapper">
                     <Link

@@ -5,7 +5,7 @@
   font-size: 0.75em;
   font-weight: var(--font-medium);
   letter-spacing: 0.08em;
-  border-radius: 4px;
+  border-radius:0.25em;
   padding: 0.125em 0.25em;
-  margin-left: 19px;
+  margin-left: 1.188em;
 }

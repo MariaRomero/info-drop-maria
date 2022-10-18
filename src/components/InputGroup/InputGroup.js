@@ -4,12 +4,14 @@ import PropTypes from "prop-types";
 import Tag from "../Tag/Tag";
 
 import "./InputGroup.css";
+import StatusMessage from "../StatusMessage/StatusMessage";
 
-const InputGroup = ({ labelText, isOptional, placeholder, name, inputValue, inputType, register, defaultValue }) => {
-
+const InputGroup = ({ labelText, isOptional, placeholder, name, inputType, register, defaultValue, errors }) => {
+  const err = errors && errors[name]
   return (
-    <section className="inputGroup" data-testid="InputGroup">
-      <label>
+    <section className={`inputGroup ${err && "errorBorder"}`} 
+      data-testid="InputGroup">
+      <label className={err && "errorBorderPadding"}>
         <div className="textContiner">
           { labelText }
           { isOptional ? <Tag label="Optional"/> : ''}
@@ -22,6 +24,10 @@ const InputGroup = ({ labelText, isOptional, placeholder, name, inputValue, inpu
           type={inputType}
           {...register(name, { required: !isOptional })}
         />
+        {err && <div className="errorWrapper">
+          <StatusMessage label="This field is required" variant="error" />
+        </div>}
+
       </label>
     </section>
   );
@@ -34,7 +40,6 @@ InputGroup.propTypes = {
   isOptional: PropTypes.bool,
   placeholder: PropTypes.string, 
   name: PropTypes.string, 
-  inputValue: PropTypes.number, 
   inputType: PropTypes.string, 
   register: PropTypes.func,
   defaultValue: PropTypes.string
@@ -45,7 +50,6 @@ InputGroup.defaultProps = {
   isOptional: true,
   placeholder: undefined, 
   name: undefined, 
-  inputValue: undefined, 
   inputType: 'text', 
   register: undefined,
   defaultValue: null

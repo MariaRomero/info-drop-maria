@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { useStateMachine } from "little-state-machine";
 import { withRouter } from "react-router-dom";
 
@@ -10,11 +10,12 @@ import updateAction from "../../helpers/updateAction";
 import clearAction from "../../helpers/clearAction";
 
 import "./Preview.css";
+import StatusMessage from "../../components/StatusMessage/StatusMessage";
 
 const Preview = (props) => {
+    const [loading, setLoading] = useState(false);
 
     const { state, actions } = useStateMachine({ updateAction, clearAction });
-
     var jsonData = {
         companyName: state.companyName,
         date: {
@@ -29,29 +30,30 @@ const Preview = (props) => {
     }
 
     const handleClick = () => {
+        setLoading(true);
         fetch('https://rocky-chamber-70595.herokuapp.com/rumour', {  
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(jsonData)})
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.message === 'accepted'){
-                // clear store go home
-                actions.clearAction()
-                actions.updateAction(data);
-
-                props.history.push("./")
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        })
-    }
-
-    return (
-        <div className="preview" >
+            },
+            body: JSON.stringify(jsonData)})
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.message === 'accepted'){
+                    // clear store go home
+                    actions.clearAction()
+                    actions.updateAction(data);
+                    
+                    props.history.push("./")
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            })
+        }
+        
+        return (
+        <div>
         <Header title="Preview" subtitle="Here’s what will be published" />
         <main data-testid="Preview" >
             <section className="previewContainer">
@@ -74,7 +76,9 @@ const Preview = (props) => {
     
                 </div>
             </section>
-            {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+
+            {loading && <div className="loadingMessage"> <StatusMessage label="Loading" variant="loading" />
+            </div>}
 
             <div className="buttonsWrapper">
                 <Link
@@ -87,7 +91,7 @@ const Preview = (props) => {
                     to="/"
                     label="Publish rumour"
                     iconBefore="done"
-                    variant="primary" 
+                    variant={loading ? "secondary" : "primary"} 
                     onClick={() => handleClick()}
                     type="submit"
                 />

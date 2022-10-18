@@ -4,10 +4,10 @@
 }
 
 .checkbox {
-  width: 26px;
-  height: 26px;
+  width: 1.625em;
+  height: 1.625em;
 }
 
 .paddingLeft {
-  padding-left: 12px;
+  padding-left: 0.75em;
 }
