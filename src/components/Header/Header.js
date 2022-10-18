@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import "./Header.css";
 
 const Header = ({ title, subtitle }) => {
@@ -19,5 +20,6 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
+  title: undefined,
   subtitle: undefined,
 };

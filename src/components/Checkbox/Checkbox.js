@@ -1,7 +1,9 @@
 import React from "react";
+
 import PropTypes from "prop-types";
-import "./Checkbox.css";
 import H2 from "../H2/H2";
+
+import "./Checkbox.css";
 
 const Checkbox = ({ title }) => {
   return (
