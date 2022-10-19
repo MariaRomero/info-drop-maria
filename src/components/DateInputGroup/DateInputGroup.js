@@ -42,7 +42,7 @@ const DateInputGroup = ({ labelText, register, defaultValue }) => {
 export default DateInputGroup;
 
 DateInputGroup.propTypes = {
-    labelText: PropTypes.string,
+    labelText: PropTypes.string.isRequired,
     defaultValue: PropTypes.object
 };
 

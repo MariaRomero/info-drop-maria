@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+
 import Checkbox from "./Checkbox";
 
 const props = {
@@ -17,13 +18,5 @@ describe("Checkbox", () => {
     render(<Checkbox {...props} />);
 
     expect(screen.getByText(/From a trusted source/i)).toBeInTheDocument();
-  });
-
-  it("fires callback when clicked", () => {
-    render(<Checkbox {...props} />);
-
-    const Checkbox = screen.getByTestId("Checkbox");
-    // fireEvent.click(Checkbox);
-    // expect(props.register).toHaveBeenCalled();
   });
 });

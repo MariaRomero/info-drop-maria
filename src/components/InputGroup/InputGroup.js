@@ -37,10 +37,10 @@ const InputGroup = ({ labelText, isOptional, placeholder, name, inputType, regis
 export default InputGroup;
 
 InputGroup.propTypes = {
-  labelText: PropTypes.string,
+  labelText: PropTypes.string.isRequired,
   isOptional: PropTypes.bool,
   placeholder: PropTypes.string, 
-  name: PropTypes.string, 
+  name: PropTypes.string.isRequired, 
   inputType: PropTypes.string, 
   register: PropTypes.func,
   defaultValue: PropTypes.string
