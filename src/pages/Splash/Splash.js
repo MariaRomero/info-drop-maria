@@ -21,7 +21,7 @@ const Splash = () => {
           iconBefore="add"
           variant="primary"
         />
-        { state.message && <StatusMessage label="Your rumour was created successfully." variant="success"/>}
+        { state.message && <StatusMessage label="Your rumour was created successfully." variant="success"/> }
       </div>
     </main>
   );

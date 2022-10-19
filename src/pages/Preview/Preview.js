@@ -16,7 +16,7 @@ const Preview = (props) => {
     const [loading, setLoading] = useState(false);
 
     const { state, actions } = useStateMachine({ updateAction, clearAction });
-    var jsonData = {
+    const jsonData = {
         companyName: state.companyName,
         date: {
             day: Number(state.day),

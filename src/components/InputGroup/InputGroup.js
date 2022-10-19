@@ -1,13 +1,14 @@
 import React from "react";
 
 import PropTypes from "prop-types";
+import StatusMessage from "../StatusMessage/StatusMessage";
 import Tag from "../Tag/Tag";
 
 import "./InputGroup.css";
-import StatusMessage from "../StatusMessage/StatusMessage";
 
 const InputGroup = ({ labelText, isOptional, placeholder, name, inputType, register, defaultValue, errors }) => {
   const err = errors && errors[name]
+
   return (
     <section className={`inputGroup ${err && "errorBorder"}`} 
       data-testid="InputGroup">
