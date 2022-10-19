@@ -8,9 +8,9 @@ import Tag from "../../components/Tag/Tag";
 import Button from "../../components/Button/Button";
 import updateAction from "../../helpers/updateAction";
 import clearAction from "../../helpers/clearAction";
+import StatusMessage from "../../components/StatusMessage/StatusMessage";
 
 import "./Preview.css";
-import StatusMessage from "../../components/StatusMessage/StatusMessage";
 
 const Preview = (props) => {
     const [loading, setLoading] = useState(false);
@@ -59,7 +59,7 @@ const Preview = (props) => {
             <section className="previewContainer">
                 <div className="previewContent">
                     <h2 className="title">
-                    New Rumour
+                        New Rumour
                     </h2>
                     <div className="companyTitleWrapper">
                         <p className="companyTitle">{state.companyName}</p>
@@ -93,7 +93,6 @@ const Preview = (props) => {
                     iconBefore="done"
                     variant={loading ? "secondary" : "primary"} 
                     onClick={() => handleClick()}
-                    type="submit"
                 />
             </div>
         </main>

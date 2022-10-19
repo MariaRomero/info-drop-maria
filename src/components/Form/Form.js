@@ -24,7 +24,7 @@ const Form = (props) => {
 
     return (
         <>
-            <form className="form" onSubmit={handleSubmit(onSubmit)}>
+            <form className="form" onSubmit={handleSubmit(onSubmit)} data-testid="Form">
                 <DateInputGroup 
                     labelText="When did you hear it?" 
                     name={'date'}
