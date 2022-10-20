@@ -1,11 +1,10 @@
 # info-drop
-Info drop client
 
-This App allows users to create New Rumors by having them fill a form and making a call to store it in the API
+This App allows users to create New Rumors by having them fill a form and making a call to store it in the API.
 
 # Setup
-run `yarn` to install dependencies.
-and `yarn start` to start the application
+* run `yarn` to install dependencies.
+* and `yarn start` to start the application.
 
 # Tech used
 * I used `react-hook-form` to handle the form's validation, errors handling and events.
