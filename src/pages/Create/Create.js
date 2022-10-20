@@ -8,9 +8,12 @@ import "./Create.css";
 const Create = () => {
   return (
     <div data-testid="Create">
-      <Header title="New Rumour" subtitle="Enter the details of the rumour you heard" />
+      <Header
+        title="New Rumour"
+        subtitle="Enter the details of the rumour you heard"
+      />
       <main>
-      <Form />
+        <Form />
       </main>
     </div>
   );

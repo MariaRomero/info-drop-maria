@@ -1,52 +1,50 @@
 .dateInputGroup {
-    margin-bottom: 2.5em;
+  margin-bottom: 2.5em;
 }
 
-.labelContiner {
-    font-size: 1.125em;
-    font-weight: var(--font-medium);
-    padding-right: 0.75rem;
-    padding-bottom: 0.75em;
-    display: grid;
+.labelContainer {
+  font-size: 1.125em;
+  font-weight: var(--font-medium);
+  padding-right: 0.75rem;
+  padding-bottom: 0.75em;
+  display: grid;
 }
 
 .dateWrapper {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
-.dateContiner {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0.75em;
-    margin-right: 1em;
-    gap: 0.75em;
+.dateContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.75em;
+  margin-right: 1em;
+  gap: 0.75em;
 
-    height: 2.688em;
-    width: 4em;
+  height: 2.688em;
+  width: 4em;
 
-    background: var(--white);
+  background: var(--white);
 
-    border: 1px solid var(--grey-500);
-    border-radius:0.25em;
+  border: 1px solid var(--grey-500);
+  border-radius: 0.25em;
 
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
-.dateContiner::placeholder  {
-    font-style: normal;
-    font-weight: var(--font-small);
-    font-size: 1em;
-    line-height: 1.188em;
-    color: var(--grey-500);
-    flex: none;
-    order: 0;
-    flex-grow: 1;
+.dateContainer::placeholder {
+  font-style: normal;
+  font-weight: var(--font-small);
+  font-size: 1em;
+  line-height: 1.188em;
+  color: var(--grey-500);
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
-
-  

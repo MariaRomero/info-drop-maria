@@ -6,16 +6,27 @@ import Tag from "../Tag/Tag";
 
 import "./InputGroup.css";
 
-const InputGroup = ({ labelText, isOptional, placeholder, name, inputType, register, defaultValue, errors }) => {
-  const err = errors && errors[name]
+const InputGroup = ({
+  labelText,
+  isOptional,
+  placeholder,
+  name,
+  inputType,
+  register,
+  defaultValue,
+  errors,
+}) => {
+  const err = errors && errors[name];
 
   return (
-    <section className={`inputGroup ${err && "errorBorder"}`} 
-      data-testid="InputGroup">
+    <section
+      className={`inputGroup ${err && "errorBorder"}`}
+      data-testid="InputGroup"
+    >
       <label className={err && "errorBorderPadding"}>
-        <div className="textContiner">
-          { labelText }
-          { isOptional ? <Tag label="Optional"/> : ''}
+        <div className="textContainer">
+          {labelText}
+          {isOptional ? <Tag label="Optional" /> : ""}
         </div>
         <input
           className="inputTag"
@@ -25,10 +36,11 @@ const InputGroup = ({ labelText, isOptional, placeholder, name, inputType, regis
           type={inputType}
           {...register(name, { required: !isOptional })}
         />
-        {err && <div className="errorWrapper">
-          <StatusMessage label="This field is required" variant="error" />
-        </div>}
-
+        {err && (
+          <div className="errorWrapper">
+            <StatusMessage label="This field is required" variant="error" />
+          </div>
+        )}
       </label>
     </section>
   );
@@ -39,19 +51,19 @@ export default InputGroup;
 InputGroup.propTypes = {
   labelText: PropTypes.string.isRequired,
   isOptional: PropTypes.bool,
-  placeholder: PropTypes.string, 
-  name: PropTypes.string.isRequired, 
-  inputType: PropTypes.string, 
+  placeholder: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  inputType: PropTypes.string,
   register: PropTypes.func,
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
 };
 
 InputGroup.defaultProps = {
   labelText: undefined,
   isOptional: true,
-  placeholder: undefined, 
-  name: undefined, 
-  inputType: 'text', 
+  placeholder: undefined,
+  name: undefined,
+  inputType: "text",
   register: undefined,
-  defaultValue: null
+  defaultValue: null,
 };

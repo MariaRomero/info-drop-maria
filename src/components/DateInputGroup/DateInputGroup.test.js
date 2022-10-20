@@ -1,19 +1,18 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 import DateInputGroup from "./DateInputGroup";
 
 const props = {
-    labelText: "When did this happen?",
-    register: jest.fn(),
-    defaultValue: {
-        day: 23,
-        month: 12,
-        year: 2021
-    }
+  labelText: "When did this happen?",
+  register: jest.fn(),
+  defaultValue: {
+    day: 23,
+    month: 12,
+    year: 2021,
+  },
 };
 
-
-describe("DateInputGroup", () => {  
+describe("DateInputGroup", () => {
   it("renders", () => {
     render(<DateInputGroup {...props} />);
 
@@ -27,19 +26,17 @@ describe("DateInputGroup", () => {
   });
 
   it("should fail to load when required prop is not passed", () => {
-    
-    jest.spyOn(console, 'error')
+    jest.spyOn(console, "error");
     const props = {
-        register: jest.fn(),
-        defaultValue: {
-            day: 23,
-            month: 12,
-            year: 2021
-        }
+      register: jest.fn(),
+      defaultValue: {
+        day: 23,
+        month: 12,
+        year: 2021,
+      },
     };
     render(<DateInputGroup {...props} />);
 
-    expect(console.error).toBeCalled()
+    expect(console.error).toBeCalled();
   });
-
 });

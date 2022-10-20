@@ -1,13 +1,18 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
+
 import Preview from "./Preview";
+
+import { StoreProvider } from "../../store";
 
 describe("Preview", () => {
   it("renders", () => {
     render(
-      <Router>
-        <Preview />
-      </Router>
+      <StoreProvider>
+        <Router>
+          <Preview />
+        </Router>
+      </StoreProvider>
     );
 
     expect(screen.getByTestId("Preview")).toBeInTheDocument();
@@ -15,39 +20,22 @@ describe("Preview", () => {
 
   it("displays the header", () => {
     render(
-      <Router>
-        <Preview />
-      </Router>
+      <StoreProvider>
+        <Router>
+          <Preview />
+        </Router>
+      </StoreProvider>
     );
-
     expect(screen.getByText(/New Rumour/i)).toBeInTheDocument();
-  });
-
-  it("displays the Tag component", () => {
-    render(
-      <Router>
-        <Preview />
-      </Router>
-    );
-
-    expect(screen.getByTestId(/Tag/i)).toBeInTheDocument();
-  });
-
-  it("displays the loading message", () => {
-    render(
-      <Router>
-        <Preview />
-      </Router>
-    );
-
-    expect(screen.getByText(/Loading/i)).toBeInTheDocument();
   });
 
   it("displays the bottom links", () => {
     render(
-      <Router>
-        <Preview />
-      </Router>
+      <StoreProvider>
+        <Router>
+          <Preview />
+        </Router>
+      </StoreProvider>
     );
 
     expect(screen.getByText(/Edit/i)).toBeInTheDocument();

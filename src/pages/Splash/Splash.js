@@ -1,15 +1,15 @@
-import React from "react";
-import { useStateMachine } from "little-state-machine";
+import React, {useContext} from "react";
 
 import Header from "../../components/Header/Header";
 import Link from "../../components/Link/Link";
 import StatusMessage from "../../components/StatusMessage/StatusMessage";
-import updateAction from "../../helpers/updateAction";
+
+import { CustomContext }  from "../../store";
 
 import "./Splash.css";
 
 const Splash = () => {
-  const { state } = useStateMachine({ updateAction });
+  const { state } = useContext(CustomContext);
 
   return (
     <main className="splash" data-testid="Splash">
@@ -21,7 +21,7 @@ const Splash = () => {
           iconBefore="add"
           variant="primary"
         />
-        { state.message && <StatusMessage label="Your rumour was created successfully." variant="success"/> }
+        { state.success && <StatusMessage label="Your rumour was created successfully." variant="success"/> }
       </div>
     </main>
   );

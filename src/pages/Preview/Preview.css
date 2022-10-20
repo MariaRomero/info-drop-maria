@@ -1,89 +1,89 @@
 .previewContainer {
-    margin-top: 5.5em;
-    margin-bottom: 7.488em;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 2.5em 1em;
-    
-    width: 23.688em;
-    height: 22.125em;
-        
-    background: var(--grey-200);
-    border-radius: 0.25em;
+  margin-top: 5.5em;
+  margin-bottom: 7.488em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5em 1em;
+
+  width: 23.688em;
+  height: 22.125em;
+
+  background: var(--grey-200);
+  border-radius: 0.25em;
 }
 
 .previewContent {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    padding: 1.25em 2em;
-    gap: 1em;
-    background: var(--white);
-    border: 2px solid var(--grey-300);
-    border-radius: 1.25em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25em 2em;
+  gap: 1em;
+  background: var(--white);
+  border: 2px solid var(--grey-300);
+  border-radius: 1.25em;
 }
 
 .title {
-    width: 11.438em;
-    font-weight: var(--font-Xlarge);
-    font-size: 1em;
-    line-height: 1.188em;
-    padding-bottom: 1em;
-    text-align: center;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--blue-600);
-    border-bottom: 1px solid var(--grey-200);
+  width: 11.438em;
+  font-weight: var(--font-Xlarge);
+  font-size: 1em;
+  line-height: 1.188em;
+  padding-bottom: 1em;
+  text-align: center;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-600);
+  border-bottom: 1px solid var(--grey-200);
 }
 
 .contentText {
-    font-weight: var(--font-small);
-    font-size: var(--font-size-Xsmall);
-    line-height: 1em;
-    color: var(--grey-500);
+  font-weight: var(--font-small);
+  font-size: var(--font-size-Xsmall);
+  line-height: 1em;
+  color: var(--grey-500);
 }
 
 .companyTitleWrapper {
-    display: flex;
+  display: flex;
 }
 
 .companyTitle {
-    font-weight: var(--font-medium);
-    font-size: 1em;
-    line-height: 1.188em;
-    text-align: center;
-    color: var(--grey-700);
+  font-weight: var(--font-medium);
+  font-size: 1em;
+  line-height: 1.188em;
+  text-align: center;
+  color: var(--grey-700);
 }
 
 .codenameTitle {
-    font-weight: var(--font-medium);
-    font-size: 1.5em;
-    line-height: 1.75em;
-    color: var(--grey-900);
+  font-weight: var(--font-medium);
+  font-size: 1.5em;
+  line-height: 1.75em;
+  color: var(--grey-900);
 }
 
 .costWrapper {
-    justify-content: space-around;
-    align-items: center;
-    display: flex;
-    font-weight: var(--font-medium);
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  font-weight: var(--font-medium);
 }
 
 .currency {
-    font-size: 1em;
-    line-height: 1.188em;
-    color: var(--grey-600);
+  font-size: 1em;
+  line-height: 1.188em;
+  color: var(--grey-600);
 }
 
 .cost {
-    font-size: 2em;
-    line-height: 2.375em;
-    text-align: center;
-    color: var(--grey-900);
+  font-size: 2em;
+  line-height: 2.375em;
+  text-align: center;
+  color: var(--grey-900);
 }
 
 .loadingMessage {
-    padding-bottom: 0.938em;
+  padding-bottom: 0.938em;
 }

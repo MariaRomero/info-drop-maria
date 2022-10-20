@@ -1,35 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StateMachineProvider, createStore } from 'little-state-machine'
 
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 
 import './index.css';
 
-
-createStore({
-  data: {
-    date: {
-      day: '',
-      month: '',
-      year: '',
-    },
-    companyName: '',
-    amount: '',
-    currency: '',
-    sourceCodename: '',
-    isTrustedSource: '',
-  }
-});
-
-
-
 ReactDOM.render(
   <React.StrictMode>
-    <StateMachineProvider>
       <App />
-    </StateMachineProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

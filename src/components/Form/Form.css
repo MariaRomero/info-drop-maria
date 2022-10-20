@@ -1,17 +1,16 @@
 .form {
-    padding: 1.5em 0 1em;
-    display: block;
+  padding: 1.5em 0 1em;
+  display: block;
 }
 
-.textContiner {
-    padding-bottom: 0.5em;
+.textContainer {
+  padding-bottom: 0.5em;
 }
 
-.errorWrapper{
-    display: flex;
+.errorWrapper {
+  display: flex;
 }
 
 .checkbox-wrapper {
-    padding-bottom: 3.75em;
+  padding-bottom: 3.75em;
 }
-

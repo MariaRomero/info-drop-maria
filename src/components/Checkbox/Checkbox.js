@@ -8,17 +8,17 @@ const Checkbox = ({ title, register }) => {
   return (
     <>
       <label className="checkbox-wrapper" data-testid="Checkbox">
-          <input 
-            className="checkbox" 
-            type="checkbox"
-            name="isTrustedSource"
-            {...register("isTrustedSource")}
-          />
-          <div className="paddingLeft">
+        <input
+          className="checkbox"
+          type="checkbox"
+          name="isTrustedSource"
+          {...register("isTrustedSource")}
+        />
+        <div className="paddingLeft">
           <section className="H2" data-testid="H2">
             <h2 className="titleText">{title}</h2>
           </section>
-          </div>
+        </div>
       </label>
     </>
   );
@@ -33,5 +33,5 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
   title: undefined,
-  register: undefined
+  register: undefined,
 };
